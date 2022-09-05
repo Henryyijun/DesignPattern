@@ -2,9 +2,19 @@
 //
 
 #include "AbstractFactory.h"
+#include "Singleton .h"
 
 #include <iostream>
+#include <vector>
+#include <cstdio>
 using namespace std;
+
+struct less {
+    bool operator() (int a, int b) {
+        return a < b;
+    }
+};
+
 
 
 int main() {
@@ -20,7 +30,6 @@ int main() {
 
     /*
     * 抽象工厂模式
-    */
     AbstracFactory* shapeFactory = FactoryProducer::getFactory("Shape");
     Shape* shape1 = shapeFactory->getShape("Circle");
     shape1->draw();
@@ -28,6 +37,15 @@ int main() {
     AbstracFactory* colorFactory = FactoryProducer::getFactory("Color");
     Color* color1 = colorFactory->getColor("Red");
     color1->fill();
+    */
+
+    /*
+    * 单例模式
+    
+    Singleton* instance = Singleton::getInstance();
+    */
+    int i = 0;
+    printf("%d, %d", i, ++i);
 }
 
 
